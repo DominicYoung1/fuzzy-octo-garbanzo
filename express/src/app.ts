@@ -3,8 +3,8 @@ import express from 'express';
 
 const app: express.Application = express();
 
-app.get('/', (req, res) => {
-  res.send("Hello world!");
+app.get('/', (request, response) => {
+  response.send("Hello world!");
 });
 
 
