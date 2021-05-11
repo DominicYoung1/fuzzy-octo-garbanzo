@@ -4,7 +4,7 @@ import express from 'express';
 const app: express.Application = express();
 
 app.get('/', (request, response) => {
-  response.send("Hello world!");
+  response.send("Hello");
 });
 
 
