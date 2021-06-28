@@ -2,14 +2,18 @@ import React, { useState } from 'react';
 import { Form, Col, Row, Button } from 'react-bootstrap';
 import { IngredientForm } from '../components/ingredient-form';
 import { IngredientTable } from '../components/ingredient-table';
-import { MyNavbar } from '../components/navbar';
-import { Ingredient, Recipe } from '../types';
+import { Ingredient, Recipe, ModelState, Action } from '../types';
 
 export const RecipeInputPage: React.FC<{
-  callback: (payload: Recipe) => void
-}> = ({callback}) => {
-
-    const [ingredients, setIngredients] = useState<{ingredient: string, amount: string}[]>([]);
+  model: ModelState,
+  dispatch: React.Dispatch<Action>
+}> = ({model, dispatch}) => {
+  
+  // const handleSubmit = (evt: any) =>{
+  //   evt.preventDefault();
+    
+  // }
+     const [ingredients, setIngredients] = useState<{ingredient: string, amount: string}[]>([]);
 
     const modifyIngredient = (payload: {ingredient: string, amount: string}, ind: number) => {
       const modifiedIngredient = [...ingredients];
@@ -30,7 +34,10 @@ export const RecipeInputPage: React.FC<{
           name: recipeName,
           ingredients: ingredients,
         };
-        callback(recipe);
+        dispatch({
+          kind: 'ADDED_RECIPE',
+          payload: recipe,
+        });
       }
       
       return (

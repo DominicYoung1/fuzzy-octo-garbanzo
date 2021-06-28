@@ -11,11 +11,11 @@ export const MyNavbar: React.FC<{
     }
 
     return <Navbar bg="light" expand="lg" onSelect={handleSelect}>
-            <Navbar.Brand href="#default">Post Login Page</Navbar.Brand>
+            <Nav.Link href="#RecipeCollection">My Cookbook!</Nav.Link>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
-                    <Nav.Link href="#RecipeCollection">My Cookbook</Nav.Link>
+                    <Nav.Link href="#RecipeInputPage">Add Recipes!</Nav.Link>
                     <Nav.Link href="#GetCookin">What's Cookin?</Nav.Link>
                 </Nav>
             </Navbar.Collapse>
