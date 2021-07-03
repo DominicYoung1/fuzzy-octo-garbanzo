@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, Col, Row, Button } from 'react-bootstrap';
+import { Form, Col, Row, Button, Toast } from 'react-bootstrap';
 import { IngredientForm } from '../components/ingredient-form';
 import { IngredientTable } from '../components/ingredient-table';
 import { Ingredient, Recipe, ModelState, Action } from '../types';
@@ -14,6 +14,7 @@ export const RecipeInputPage: React.FC<{
     
   // }
      const [ingredients, setIngredients] = useState<{ingredient: string, amount: string}[]>([]);
+     const [toastOpen, setToastOpen] = useState(false);
 
     const modifyIngredient = (payload: {ingredient: string, amount: string}, ind: number) => {
       const modifiedIngredient = [...ingredients];
@@ -34,6 +35,7 @@ export const RecipeInputPage: React.FC<{
           name: recipeName,
           ingredients: ingredients,
         };
+        setToastOpen(true);
         dispatch({
           kind: 'ADDED_RECIPE',
           payload: recipe,
@@ -43,6 +45,7 @@ export const RecipeInputPage: React.FC<{
       return (
         <div className="App">
           <h1>Create your delicious recipe!</h1>
+          <IngredientForm callback={addToIngredients} defaultValue={undefined}/>
           <Form onSubmit={clickCallback}>
             <Form.Group as={Row} controlID="formRecipe">
               <Form.Label column sm={2} lg={4}>Recipe Name</Form.Label>
@@ -50,10 +53,16 @@ export const RecipeInputPage: React.FC<{
                 <Form.Control defaultValue="Recipe Name"/>
               </Col>
             </Form.Group>
-            <IngredientForm callback={addToIngredients} defaultValue={undefined}/>
             <IngredientTable ingredients={ingredients} callback={modifyIngredient}/>
             <Button type="submit" size="lg">Add Recipe</Button>
           </Form>
+          <Toast animation={false} onClick={() => {
+            setToastOpen(false)
+            console.log('i ran')}} show={toastOpen} delay={3000} autohide={true}>
+            <Toast.Body>
+              Looks Delicious, added the recipe to your cookbook!
+            </Toast.Body>
+          </Toast>
         </div>
       );
 }

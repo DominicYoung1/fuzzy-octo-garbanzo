@@ -20,7 +20,7 @@ export const NavbarController: React.FC<{
                 kind: 'CLICKED_NAVBAR',
                 payload: pageName,
             })}/>
-            <RecipeCollection recipes={model.recipes} />
+            <RecipeCollection recipes={model.recipes} dispatch={dispatch} />
             </div>
     }
 
