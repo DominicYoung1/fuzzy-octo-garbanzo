@@ -3,12 +3,14 @@ export type Ingredient = {
     amount: string
 };
     
-export type Recipe = {
+export type RecipeRecord = {
     name: string, 
     ingredients: 
     Ingredient[], 
     owner: string, //this should be the id of the user that owns this recipe.
-    viewers: string[]
+    viewers: string[],
+    steps: string,
+    id: string
 };
 
 export type User = {
@@ -17,3 +19,6 @@ export type User = {
     ID: string
 };
 
+export type Recipe = {name: string, ingredients: Ingredient[], id: string};
+
+export type RecipePayload = {recipe: Recipe, user: string};

@@ -19,10 +19,16 @@ export const RecipeCollection: React.FC<{
         }}>
             <Modal.Header>
                 <Modal.Title> {recipes[index]?.name}
-                <Button>Edit</Button>
+                <Button onClick={() => {
+                    dispatch( {
+                        kind: 'STARTED_EDITING_RECIPE',
+                        payload: index,
+                    });
+                    setOpen(false);
+                }}>Edit</Button>
                 <Button onClick={() => {
                     dispatch({
-                        kind: 'DELETED RECIPE',
+                        kind: 'DELETED_RECIPE',
                         payload: index,
                     });
                     setOpen(false);

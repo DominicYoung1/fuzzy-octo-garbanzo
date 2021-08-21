@@ -16,24 +16,18 @@ import { NavbarController } from './controllers/navbar-controller';
 
 function App() {
 
-  const [user, setUser] = useState<{username: string, password: string} | undefined>();
+  console.log("I found the hash", window.location.hash);
 
-  const loginSubmitted = (payload: {username: string, password: string}) => {
-    const userExists = true;
-    if (userExists) {
-      setUser(payload);
-    }
-  }
   
-  if (user) {
+  if (window.location.hash) {
     //return <IngredientInventoryPage/>
     return <div>
-              <NavbarController user={user}/>
+              <NavbarController user={window.location.hash.slice(1)}/>
             </div>
   }
     return <Card bg="light" style={{ margin: "2.5em"}}>
               <Card.Body>
-              <LoginPage callback={loginSubmitted}/>
+              <LoginPage />
                 </Card.Body>
             </Card>
   

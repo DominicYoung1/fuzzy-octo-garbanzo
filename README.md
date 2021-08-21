@@ -15,6 +15,7 @@ Question: How do we want to tackle doing the stuff?
   + A page to show what ingredients you are missing from selected dishes. (10)
 
 #### Backend
+  + We will need to figure out our login/signup system for users (?)
   + We need a way to store recipe data (2)
   + A way to look up the ingredients for a given recipe (4.2.0)
   + A way to tabulate ingredients already owned by the user (6)
@@ -23,3 +24,7 @@ Question: How do we want to tackle doing the stuff?
   + A way to submit new recipes we want the backend to store and have as options. (3)
 
 
+// ON THE DOCKET: More cleanup: Populate cookbook page on login, editing and deleting recipes updates backend, add the ability to filter recipes by ingerdient. 
+
+// CLEANUP FOR NEXT: A full run through to search for issues related to
+// changing our recipe/RecipePayload types

@@ -15,7 +15,7 @@ export const IngredientTable: React.FC<{
 
     
     return <>
-    <Modal show ={editingIngredient !== undefined} onHide={() => {
+    <Modal show={editingIngredient !== undefined} onHide={() => {
         setEditingIngredient(undefined);
         setEditingIndex(undefined);
         }}>

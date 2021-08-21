@@ -2,6 +2,7 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://localhost:8888/public",
   "dependencies": {
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.6",
@@ -22,7 +23,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "powershell Remove-Item -r ../express/public; react-scripts build; Copy-Item -Path build -Destination ../express/public -Recurse",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
